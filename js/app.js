@@ -11,7 +11,7 @@ buttonReStart.addEventListener("click", offGameOverScreen, false)
 buttonClose.addEventListener("click", GameOver, false)
 
 // Remove modal an start
-on()
+// on()
 // Display players location
 render()
 
@@ -25,12 +25,13 @@ document.getElementById("input")
 });
 
 // End Overlay and Start the game
-function on() {
-  document.getElementById("overlayStart").style.display = "block";
-}
+// function on() {
+//   document.getElementById("overlayStart").style.display = "block";
+// }
 
 function off() {
   document.getElementById("overlayStart").style.display = "none";
+  document.querySelector('.container').style.display = "block";
 }
 
 function onGameOver() {
