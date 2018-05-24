@@ -11,6 +11,12 @@
   display: block; 
   z-index: 99
 }
+#help-img {
+  width: 10%;
+  height: 10%;
+  margin-left: auto;
+  cursor: pointer;
+}
 #loading-image {
   position: absolute;
   top: 40%;
@@ -22,6 +28,9 @@
 }
 #rucksack {
   width: 60px;
+}
+#buttonStart {
+  width: 20%;
 }
 #buttonGame, #buttonStart, #buttonRestart, #buttonClose {
   cursor: pointer;

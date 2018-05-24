@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>First Text Adventure</title>
@@ -17,7 +18,7 @@
       <h3>Ein TextAdventure von Ralf Gräf</h3>
       <br>
       <br>
-      <button id="buttonStart" class="btn float-right">START</button>
+      <img id="buttonStart" src="img/startbtn.png" class="float-right" />
     </div>
   </div>
   <div id="overlayGameOver">
@@ -32,8 +33,8 @@
   </div>
   <div class="container">
     <div class="row" id="titel">
-      <h1>Das <img id = "logo" src="img/bookeye-logo.jpg" alt="Bookeye-Logo" /> des Grauens ... </h1>
-      <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+      <h1>Das <img id="logo" src="img/bookeye-logo.jpg" alt="Bookeye-Logo" /> des Grauens ... </h1>
+      <img id="help-img" class="float-right" src="img/help.png" data-toggle="modal" data-target=".bd-example-modal-lg" />
     </div>
     <div class="row">
       <div id="image" class="col-6">
@@ -41,21 +42,22 @@
       </div>
       <div id="message" class="col-6">
         <p id="output"></p>
-        <form class="form-inline">
-          <input class="form-control" id="input" type="text" placeholder="Was willst Du tun ...">
-          <br>
-          <button id="buttonGame" class="btn btn-default float-right">Enter</button>
-        </form>
+          <div class="form-inline">
+            <input class="form-control" id="input" type="text" placeholder="Was willst Du tun ...">
+            <button id="buttonGame" class="btn btn-default">Enter</button>
+          </div>
       </div>
     </div>
     <br>
     <div class="row">
       <div id="inventar" class="col-6">
-        <img id = "rucksack" src="img/tasche.jpg" alt="Tasche" />
+        <img id="rucksack" src="img/tasche.jpg" alt="Tasche" />
           <p id="inventory">  
           </p>
       </div>
       <div id="eingabe" class="col-6">
+
+      </div>
 
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -67,19 +69,18 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>
-                  Richtung: geh nach [himmelsrichtung]
-                  Aufnehmen: nimm [gegenstand]
-                  Untersuchen: untersuch [gegenstand]
-                </p>
+                <p>Groß- oder Kleinschreibung ist egal</p>
+                <p>Richtung: geh nach [himmelsrichtung]</p>
+                <p>Aufnehmen: nimm [gegenstand]</p>
+                <p>Untersuchen: untersuch [gegenstand]</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      
     </div>
   </div>
   <script src="js/init.js"></script>
@@ -87,7 +88,7 @@
   <script type="module" src="js/app.js"></script>
   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
