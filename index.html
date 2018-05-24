@@ -33,6 +33,7 @@
   <div class="container">
     <div class="row" id="titel">
       <h1>Das <img id = "logo" src="img/bookeye-logo.jpg" alt="Bookeye-Logo" /> des Grauens ... </h1>
+      <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
     </div>
     <div class="row">
       <div id="image" class="col-6">
@@ -40,8 +41,11 @@
       </div>
       <div id="message" class="col-6">
         <p id="output"></p>
-        <input id="input" type="text" placeholder="Was willst Du tun ...">
-        <button id="buttonGame">Enter</button>
+        <form class="form-inline">
+          <input class="form-control" id="input" type="text" placeholder="Was willst Du tun ...">
+          <br>
+          <button id="buttonGame" class="btn btn-default float-right">Enter</button>
+        </form>
       </div>
     </div>
     <br>
@@ -52,7 +56,29 @@
           </p>
       </div>
       <div id="eingabe" class="col-6">
-        
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Hilfestellung</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Richtung: geh nach [himmelsrichtung]
+                  Aufnehmen: nimm [gegenstand]
+                  Untersuchen: untersuch [gegenstand]
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

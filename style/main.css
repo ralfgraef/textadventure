@@ -25,6 +25,7 @@
 }
 #buttonGame, #buttonStart, #buttonRestart, #buttonClose {
   cursor: pointer;
+  margin-left:10px;
 }
 #overlayGameOver {
   background-image: url("../img/game_over.jpg");
