@@ -159,5 +159,7 @@ function render () {
 
   if (handreichung){
     inventory.innerHTML = "Handreichung"
-  } 
+  } else {
+    inventory.innerHTML = "Noch nichts im Inventar..."
+  }
 }
