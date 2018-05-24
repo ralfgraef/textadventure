@@ -39,7 +39,6 @@ function onGameOver() {
 }
 
 function offGameOverScreen() {
-  document.getElementById("overlayGameOver").style.display = "none";
   location = window.location
 }
 
