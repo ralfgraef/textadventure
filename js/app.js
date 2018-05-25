@@ -10,8 +10,7 @@ buttonReStart.addEventListener("click", offGameOverScreen, false)
 // ButtonReStart
 buttonClose.addEventListener("click", GameOver, false)
 
-// Remove modal an start
-// on()
+
 // Display players location
 render()
 
@@ -122,6 +121,7 @@ function playGame () {
 
     case "untersuch briefkasten":
       if(mapLocation = 6) {
+        untersuchBriefkasten = true;
         map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /> Du hast die Handreichung entdeckt...");
         input.value=""
         action = ""
@@ -130,12 +130,15 @@ function playGame () {
       break
 
     case "nimm handreichung":
-      if(mapLocation = 6) {
+      if(untersuchBriefkasten) {
         handreichung = true
-        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /> Du hast die Handreichung genommen und bist total begeistert ...")
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /> Du hast die Handreichung genommen und bist total begeistert ...");
         input.value=""
         action = ""
         render()
+      }  else{
+        gameMessage = blockedPathMessages[6]
+        input.value=""
       }
       break
     

@@ -37,10 +37,14 @@ blockedPathMessages[2] = "Nein, es geht nicht weiter nach Süden..."
 blockedPathMessages[3] = "Nein, es geht nicht weiter nach Westen..."
 blockedPathMessages[4] = "Hier gibt es nichts zu untersuchen..."
 blockedPathMessages[5] = "Du warst doch schonmal hier, oder..."
+blockedPathMessages[6] = "Welche Handreichung???"
+
 
 
 // Spielzüge
 let zug = 0
+// Briefkasten untersucht?
+let untersuchBriefkasten = false
 
 // Handreichung Inventar
 let handreichung = false
