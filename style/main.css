@@ -22,9 +22,15 @@
   top: 40%;
   left: 45%;
   z-index: 100
+}
+#image{
+  margin-left: -10px;
 } 
 #logo {
   margin-top: -4px;
+}
+#inventar {
+  margin-left: -15px;
 }
 #rucksack {
   width: 60px;

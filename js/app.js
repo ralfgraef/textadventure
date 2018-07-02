@@ -81,12 +81,24 @@ function playGame () {
       }
       break
     case "geh nach osten":
+    if (mapLocation==5 || mapLocation ==2) {
+      gameMessage = blockedPathMessages[1]
+      input.value=""
+      action=""
+      } else if (mapLocation==7){
       mapLocation += 1
       input.value=""
       action = ""
       document.getElementById('input').disabled = true
       document.getElementById('buttonGame').disabled = true
       setTimeout(onGameOver, 10000)
+      } else if(mapLocation==6 && handreichung){
+        mapLocation += 1
+        input.value=""
+        action = ""
+        console.log('Jetzt mit Handreichung');
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung1;
+      }
       break 
 
     case "geh nach süden":
@@ -122,20 +134,20 @@ function playGame () {
     case "untersuch briefkasten":
       if(mapLocation = 6) {
         untersuchBriefkasten = true;
-        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /> Du hast die Handreichung entdeckt...");
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br />Du hast im Briefkasten die <i>Handreichung des guten Willens</i> entdeckt, Du solltest sie mitnehmen...");
         input.value=""
         action = ""
-        render()
+        //render()
       }
       break
 
     case "nimm handreichung":
       if(untersuchBriefkasten) {
         handreichung = true
-        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /> Du hast die Handreichung genommen und bist total begeistert ...");
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Handreichung, jetzt kann auf dem Weg zur Arbeit nichts mehr schiefgehen!");
         input.value=""
         action = ""
-        render()
+        //render()
       }  else{
         gameMessage = blockedPathMessages[6]
         input.value=""
@@ -160,7 +172,7 @@ function render () {
   output.innerHTML += "<br><br><em>" + gameMessage + "</em>"
 
   if (handreichung){
-    inventory.innerHTML = "Handreichung"
+    inventory.innerHTML = "Handreichung des guten Willens"
   } else {
     inventory.innerHTML = "Noch nichts im Inventar..."
   }
