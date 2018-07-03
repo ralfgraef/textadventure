@@ -23,18 +23,48 @@ document.getElementById("input")
     }
 });
 
-// End Overlay and Start the game
-// function on() {
-//   document.getElementById("overlayStart").style.display = "block";
-// }
 
 function off() {
   document.getElementById("overlayStart").style.display = "none";
   document.querySelector('.container').style.display = "block";
 }
 
-function onGameOver() {
+function initCountDown() {
+  document.getElementById('input').disabled = true
+  document.getElementById('buttonGame').disabled = true
+  document.getElementById('countdown').style.display = 'block'
+  var timeleft = 15;
+  var downloadTimer = setInterval(function(){
+  timeleft--;
+  document.getElementById("countdowntimer").textContent = timeleft;
+  if(timeleft <= 0)
+      clearInterval(downloadTimer);
+  },1000);
+  setTimeout(showOverlayGameOver, 16000);
+}
+
+function initCountDownAusgabe() {
+  document.getElementById('input').disabled = true
+  document.getElementById('buttonGame').disabled = true
+  document.getElementById('countdownAusgabe').style.display = 'block'
+  var timeleft = 60;
+  var downloadTimer = setInterval(function(){
+  timeleft--;
+  document.getElementById("countdowntimerAusgabe").textContent = timeleft;
+  if(timeleft <= 0)
+      clearInterval(downloadTimer);
+  },1000);
+  setTimeout(showafterAusgabe, 60000)
+}
+
+function showOverlayGameOver() {
   document.getElementById("overlayGameOver").style.display = "block";
+}
+
+function showafterAusgabe() {
+  document.getElementById('input').disabled = false
+  document.getElementById('buttonGame').disabled = false
+  document.getElementById('countdownAusgabe').innerHTML = "So, da simma wieder..."
 }
 
 function offGameOverScreen() {
@@ -89,9 +119,7 @@ function playGame () {
       mapLocation += 1
       input.value=""
       action = ""
-      document.getElementById('input').disabled = true
-      document.getElementById('buttonGame').disabled = true
-      setTimeout(onGameOver, 10000)
+      initCountDown();
       } else if(mapLocation==6 && handreichung){
         mapLocation += 1
         input.value=""
@@ -123,6 +151,12 @@ function playGame () {
       if (mapLocation==6 || mapLocation ==3 || mapLocation == 0) {
         gameMessage = blockedPathMessages[3]
         input.value=""
+      }
+      else if (mapLocation==4) {
+        mapLocation -= 1
+        input.value=""
+        action = ""
+        initCountDownAusgabe();
       }
       else {
         mapLocation -= 1

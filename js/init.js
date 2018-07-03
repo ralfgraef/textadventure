@@ -1,6 +1,8 @@
 window.onload = function(){ 
   document.getElementById("loading").style.display = "none";
   document.getElementById("overlayStart").style.display = "block";
+  document.getElementById("countdown").style.display = "none";
+  document.getElementById("countdownAusgabe").style.display = "none";
 } 
 
 // Create the map
@@ -9,8 +11,8 @@ let map = []
 map[0] = "Kantine"
 map[1] = "Bibliothek"
 map[2] = "Großraumbüro"
-map[3] = "Archivtheke"
-map[4] = {Ort:"FES-Eingang", Beschreibung:"Es ist ruhig hier in der FES, ..."}
+map[3] = {Ort:"Archivtheke", Beschreibung:"Du stolperst die Stufen zur Archivausgabe herunter, Deine Bestellung von gestern ist endlich ausgeliefert worden. Du überprüfst die Richtigkeit der bestellten Archivalien und setzt für eine Minute aus..."}
+map[4] = {Ort:"FES-Eingang", Beschreibung:"Es ist ruhig hier in der FES, noch ruhiger als sonst üblich. Die Schlüsselausgabe ist nicht besetzt. Das wird kein normaler Arbeitstag, Du musst Dich weiter umsehen. Irgendwie hast Du das Gefühl, es fehlt Dir etwas Wichtiges, ..."}
 map[5] = "Scanner des Grauens"
 map[6] = {Ort:"Ehemalige Botschaft", Beschreibung:"Du stehst vor einem seltsamen Turm. Das gesamte Gelände sieht verwildert und verlassen aus. Es ist vollends mit einer meterdicken Rosenhecke umschlossen, die auf den angrenzenden Mauern weitergewandert ist und fast den gesamten Komplex überwuchert hat. An der Tür hängt ein arg ramponierter Briefkasten ..."}
 map[7] = {ORT:"Haltestelle Max-Löbner-Strasse", Beschreibung:"Ein neuer Arbeitstag steht Dir bevor. Genervt steigst Du an der Haltestelle Max-Löbner-Strasse aus der Bahn aus: Heute ausnahmsweise nur 20 Minuten Verspätung. Im Norden siehst Du die Friedrich-Ebert-Stiftung, im Westen steht eine seltsamer Turm, im Osten hörst Du Geschrei und Tumult.", Beschreibung1:"Nach Erhalt der <em>Handreichung des guten Willens</em> fühlst Du Dich gestärkt für Deinen Arbeitstag in der FES, die im Norden liegt, im Osten hörst Du immer noch Tumult und Geschrei."}
@@ -43,6 +45,7 @@ blockedPathMessages[6] = "Welche Handreichung???"
 
 // Spielzüge
 let zug = 0
+
 // Briefkasten untersucht?
 let untersuchBriefkasten = false
 
@@ -59,7 +62,7 @@ let playersInput = ""
 let gameMessage = ""
 
 // create array of commands the game understands
-// and a variable tto store the action
+// and a variable to store the action
 let commands = ["geh nach norden", "geh nach osten", "geh nach süden", "geh nach westen", "untersuch briefkasten", "nimm handreichung"]
 let action = ""
 
@@ -72,18 +75,12 @@ let image = document.querySelector("#spielbild")
 
 // ButtonGame
 let buttonGame = document.querySelector("#buttonGame")
-// buttonGame.style.cursor = "pointer"
-// buttonGame.addEventListener("click", clickHandler, false)
 
 // ButtonStart
 let buttonStart = document.querySelector("#buttonStart")
-// buttonStart.style.cursor = "pointer"
-// buttonStart.addEventListener("click", off, false)
 
 // ButtonReStart
 let buttonReStart = document.querySelector("#buttonReStart")
-// buttonReStart.style.cursor = "pointer"
-// buttonReStart.addEventListener("click", offGameOver, false)
 
 // ButtonClose
 let buttonClose = document.querySelector("#buttonClose")

@@ -23,7 +23,7 @@ Nach Süden geht nicht.
 
 "Geh nach Osten": Spielfigur ist an Haltestelle Olof-Palme-Allee(8). Eine Tür einer abfahrt-
 bereiten Bahn schliesst nicht, da ein Fahrgast die Lichtschranke blockiert. Du nimmst an der lebhaften Diskussion
-zwischen Fahrpersonal und Fahrgästen teil und gehst heute nicht mehr arbeiten ---> Game Over
+zwischen Fahrpersonal und Fahrgästen teil und gehst heute nicht mehr arbeiten ---> Scanner schliesst alle Anwendungen --> Game Over
 
 "Geh nach Westen": Spielfigur steht vor einem seltsamen Turm(6). Das gesamte Gelände sieht verwildert und verlassen aus, 
 es ist vollends mit einer meterdicken Rosenhecke umschlossen, die auf den angrenzenden Mauern weitergewandert ist und fast 

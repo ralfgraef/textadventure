@@ -23,6 +23,9 @@
   left: 45%;
   z-index: 100
 }
+#countdown{
+  font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 #image{
   margin-left: -10px;
 } 
