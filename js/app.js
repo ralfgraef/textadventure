@@ -43,7 +43,7 @@ function initCountDown() {
   setTimeout(showOverlayGameOver, 16000);
 }
 
-function initCountDownAusgabe() {
+function initCountDownAusgabe(mapLocation) {
   document.getElementById('input').disabled = true
   document.getElementById('buttonGame').disabled = true
   document.getElementById('countdownAusgabe').style.display = 'block'
@@ -54,17 +54,20 @@ function initCountDownAusgabe() {
   if(timeleft <= 0)
       clearInterval(downloadTimer);
   },1000);
-  setTimeout(showafterAusgabe, 60000)
+  setTimeout(showafterAusgabe, 60000, mapLocation, archivalien)
 }
 
 function showOverlayGameOver() {
   document.getElementById("overlayGameOver").style.display = "block";
 }
 
-function showafterAusgabe() {
+function showafterAusgabe(mapLocation) {
+  archivalien = true;
   document.getElementById('input').disabled = false
   document.getElementById('buttonGame').disabled = false
-  document.getElementById('countdownAusgabe').innerHTML = "So, da simma wieder..."
+  //document.getElementById('countdownAusgabe').innerHTML = "So, da simma wieder..."
+  document.getElementById("countdownAusgabe").style.display = "none";
+  map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
 }
 
 function offGameOverScreen() {
@@ -156,7 +159,7 @@ function playGame () {
         mapLocation -= 1
         input.value=""
         action = ""
-        initCountDownAusgabe();
+        initCountDownAusgabe(mapLocation);
       }
       else {
         mapLocation -= 1
@@ -207,6 +210,10 @@ function render () {
 
   if (handreichung){
     inventory.innerHTML = "Handreichung des guten Willens"
+  } else if(archivalien) {
+    inventory.innerHTML = "Archivalien der Nutzlosigkeit"
+  } else if(handreichung && archivalien) {
+    inventory.innerHTML = "Handreichung des guten Willens Archivalien der Nutzlosigkeit"
   } else {
     inventory.innerHTML = "Noch nichts im Inventar..."
   }
