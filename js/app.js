@@ -54,7 +54,7 @@ function initCountDownAusgabe(mapLocation) {
   if(timeleft <= 0)
       clearInterval(downloadTimer);
   },1000);
-  setTimeout(showafterAusgabe, 60000, mapLocation, archivalien)
+  setTimeout(showafterAusgabe, 60000)
 }
 
 function showOverlayGameOver() {
@@ -62,12 +62,10 @@ function showOverlayGameOver() {
 }
 
 function showafterAusgabe(mapLocation) {
-  archivalien = true;
   document.getElementById('input').disabled = false
   document.getElementById('buttonGame').disabled = false
-  //document.getElementById('countdownAusgabe').innerHTML = "So, da simma wieder..."
   document.getElementById("countdownAusgabe").style.display = "none";
-  map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
+  
 }
 
 function offGameOverScreen() {
@@ -159,7 +157,15 @@ function playGame () {
         mapLocation -= 1
         input.value=""
         action = ""
-        initCountDownAusgabe(mapLocation);
+
+        initCountDownAusgabe();
+        
+        setTimeout(function() {
+          archivalien = true;
+          map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
+          render();
+        }, 60000);
+        
       }
       else {
         mapLocation -= 1
@@ -208,12 +214,12 @@ function render () {
   // Display message
   output.innerHTML += "<br><br><em>" + gameMessage + "</em>"
 
-  if (handreichung){
-    inventory.innerHTML = "Handreichung des guten Willens"
+  if (handreichung && archivalien){
+    inventory.innerHTML = `Handreichung des guten Willens <br> Archivalien der Nutzlosigkeit`
   } else if(archivalien) {
     inventory.innerHTML = "Archivalien der Nutzlosigkeit"
-  } else if(handreichung && archivalien) {
-    inventory.innerHTML = "Handreichung des guten Willens Archivalien der Nutzlosigkeit"
+  } else if(handreichung) {
+    inventory.innerHTML = "Handreichung des guten Willens"
   } else {
     inventory.innerHTML = "Noch nichts im Inventar..."
   }
