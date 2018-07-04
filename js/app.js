@@ -162,7 +162,12 @@ function playGame () {
         
         setTimeout(function() {
           archivalien = true;
-          map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
+          if(!handreichung){
+            map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
+          }
+          else {
+            map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit und die Handreichung, yeah!!");
+          }
           render();
         }, 60000);
         
@@ -187,7 +192,7 @@ function playGame () {
     case "nimm handreichung":
       if(untersuchBriefkasten) {
         handreichung = true
-        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Handreichung, jetzt kann auf dem Weg zur Arbeit nichts mehr schiefgehen!");
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Handreichung, jetzt kann auf dem Weg zur Arbeit nichts mehr schiefgehen, eigentlich ...");
         input.value=""
         action = ""
         //render()
