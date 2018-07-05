@@ -61,7 +61,7 @@ function showOverlayGameOver() {
   document.getElementById("overlayGameOver").style.display = "block";
 }
 
-function showafterAusgabe(mapLocation) {
+function showafterAusgabe() {
   document.getElementById('input').disabled = false
   document.getElementById('buttonGame').disabled = false
   document.getElementById("countdownAusgabe").style.display = "none";
@@ -121,6 +121,12 @@ function playGame () {
       input.value=""
       action = ""
       initCountDown();
+      } else if(mapLocation==3 && handreichung && archivalien){
+        mapLocation += 1
+        input.value=""
+        action = ""
+        console.log('Jetzt mit Handreichung und Archivalien');
+        map[mapLocation].Beschreibung = map[mapLocation].Beschreibung2;
       } else if(mapLocation==6 && handreichung){
         mapLocation += 1
         input.value=""
@@ -128,6 +134,7 @@ function playGame () {
         console.log('Jetzt mit Handreichung');
         map[mapLocation].Beschreibung = map[mapLocation].Beschreibung1;
       }
+
       break 
 
     case "geh nach süden":
@@ -163,7 +170,7 @@ function playGame () {
         setTimeout(function() {
           archivalien = true;
           if(!handreichung){
-            map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit, yeah!!");
+            map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die <em>Archivalien der Nutzlosigkeit</em>, yeah!!");
           }
           else {
             map[mapLocation].Beschreibung = map[mapLocation].Beschreibung.concat("<br /><br/ >Du hast die Archivalien der Nutzlosigkeit und die Handreichung, yeah!!");
